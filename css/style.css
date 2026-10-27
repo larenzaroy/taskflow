@@ -3263,10 +3263,9 @@ button.mobile-menu-toggle {
 
 @media (max-width: 768px) {
   .inspiration-showcase-card {
-    /* Tablet: fill viewport minus a smaller topbar estimate */
-    height: calc(100vh - var(--topbar-height) - 100px);
-    min-height: 420px;
-    max-height: 680px;
+    height: auto;
+    min-height: 240px;
+    max-height: 320px;
   }
 }
 
@@ -3275,10 +3274,10 @@ button.mobile-menu-toggle {
     grid-template-columns: 1fr;
   }
   .inspiration-showcase-card {
-    /* Mobile: fill most of the viewport, leave room for scroll hint */
-    height: calc(100vh - var(--topbar-height) - 80px);
-    min-height: 360px;
-    max-height: 580px;
+    /* Mobile: decreased compact height */
+    height: auto;
+    min-height: 240px;
+    max-height: 320px;
   }
   .inspiration-foreground-content {
     padding: 26px 20px;
@@ -4800,20 +4799,20 @@ button, a, input, select {
 
   /* Daily Inspiration Card on Phone */
   .inspiration-showcase-card {
-    height: calc(100vh - var(--topbar-height) - 120px);
-    min-height: 380px;
-    max-height: 520px;
+    height: auto;
+    min-height: 240px;
+    max-height: 320px;
     border-radius: var(--radius-lg);
     margin-bottom: 18px;
   }
 
   .inspiration-foreground-content {
-    padding: 20px 16px;
-    gap: 12px;
+    padding: 16px 14px;
+    gap: 10px;
   }
 
   .inspiration-quote-display {
-    font-size: 1.65rem;
+    font-size: 1.35rem;
     line-height: 1.3;
   }
 
