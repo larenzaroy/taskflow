@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="TaskFlow — Modern Task & Productivity Dashboard for GDG BPPIMT Tech Team">
+  <title>TaskFlow — Task & Productivity Dashboard | GDG BPPIMT</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==================== AUTHENTICATION OVERLAY PAGE (GLASSMORPHISM) ==================== -->
+  <div class="auth-page-wrapper" id="auth-page-wrapper" aria-modal="true" role="dialog">
+    <!-- ChatGPT Thinking Animated Neural Aurora & Fluid Waves -->
+    <div class="auth-chatgpt-thinking-bg" aria-hidden="true">
+      <div class="gpt-aurora-mesh"></div>
+      <div class="gpt-thinking-blob gpt-blob-1"></div>
+      <div class="gpt-thinking-blob gpt-blob-2"></div>
+      <div class="gpt-thinking-blob gpt-blob-3"></div>
+      <div class="gpt-thinking-blob gpt-blob-4"></div>
+      <div class="gpt-thinking-wave gpt-wave-1"></div>
+      <div class="gpt-thinking-wave gpt-wave-2"></div>
+      <div class="gpt-thinking-core"></div>
+    </div>
+
+    <!-- Ambient Animated Glow Orbs -->
+    <div class="auth-ambient-orb auth-orb-1" aria-hidden="true"></div>
+    <div class="auth-ambient-orb auth-orb-2" aria-hidden="true"></div>
+    <div class="auth-ambient-orb auth-orb-3" aria-hidden="true"></div>
+    <div class="auth-ambient-orb auth-orb-4" aria-hidden="true"></div>
+    <div class="auth-ambient-orb auth-orb-5" aria-hidden="true"></div>
+
+    <!-- Animated Mesh Grid Overlay -->
+    <div class="auth-mesh-grid" aria-hidden="true"></div>
+
+    <!-- Shimmer Beam Sweep -->
+    <div class="auth-shimmer-beam" aria-hidden="true"></div>
+
+    <!-- Background Productivity Overlay -->
+    <div class="auth-bg-overlay" aria-hidden="true"></div>
+
+    <!-- Floating Top Bar on Auth Page (Theme toggle + Guest Access) -->
+    <header class="auth-top-bar">
+      <div class="auth-brand-mini">
+        <div class="brand-icon-badge mini">
+          <svg viewBox="0 0 24 24" class="brand-svg" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <span class="auth-brand-name">TaskFlow</span>
+        <span class="gdg-brand-badge">GDG BPPIMT</span>
+      </div>
+
+      <div class="auth-top-actions">
+        <button type="button" class="btn btn-sm btn-ghost auth-theme-toggle" id="btn-auth-theme-toggle" title="Toggle Light/Dark Theme">
+          <i data-lucide="moon"></i>
+          <span class="auth-theme-label">Theme</span>
+        </button>
+        <button type="button" class="btn btn-sm btn-outline auth-guest-btn" id="btn-auth-guest-access" title="Explore Dashboard as Guest">
+          <span>Explore as Guest</span>
+          <i data-lucide="arrow-right"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Glassmorphism Card -->
+    <main class="auth-card-container">
+      <div class="auth-glass-card">
+        <!-- Card Header -->
+        <div class="auth-card-header">
+          <div class="auth-logo-badge">
+            <svg viewBox="0 0 24 24" class="auth-logo-svg" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h2 class="auth-title" id="auth-main-title">Welcome to TaskFlow</h2>
+          <p class="auth-subtitle" id="auth-main-subtitle">Your intelligent space for peak productivity.</p>
+        </div>
+
+        <!-- Segmented Tab Switcher: Sign In vs Sign Up -->
+        <div class="auth-tab-switch" role="tablist">
+          <button type="button" class="auth-tab-btn active" id="tab-btn-signin" role="tab" aria-selected="true">
+            <i data-lucide="log-in"></i> Sign In
+          </button>
+          <button type="button" class="auth-tab-btn" id="tab-btn-signup" role="tab" aria-selected="false">
+            <i data-lucide="user-plus"></i> Create Account
+          </button>
+        </div>
+
+        <!-- Quick Social & Instant Login -->
+        <div class="auth-social-group">
+          <!-- Google Sign In Button -->
+          <button type="button" class="btn btn-social-google" id="btn-google-signin">
+            <svg class="google-icon" viewBox="0 0 24 24" width="20" height="20">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+            </svg>
+            <span>Continue with Google</span>
+          </button>
+
+          <!-- Instant Demo Access (One-click login as Uttam Kumar Roy) -->
+          <button type="button" class="btn btn-demo-access" id="btn-quick-demo-login" title="1-Click Instant Demo Login as Lead">
+            <div class="demo-btn-content">
+              <span class="demo-zap-icon">⚡</span>
+              <span class="demo-btn-text">Instant Demo Sign In</span>
+            </div>
+            <span class="demo-badge">Lead Profile</span>
+          </button>
+        </div>
+
+        <!-- Divider -->
+        <div class="auth-divider">
+          <span>or continue with email</span>
+        </div>
+
+        <!-- ==================== TAB 1: SIGN IN FORM ==================== -->
+        <form class="auth-form" id="auth-form-signin" novalidate>
+          <!-- Email Input -->
+          <div class="auth-form-group">
+            <label for="signin-email" class="auth-label">Email Address</label>
+            <div class="auth-input-wrapper">
+              <span class="auth-input-icon">
+                <i data-lucide="mail"></i>
+              </span>
+              <input type="email" id="signin-email" class="auth-input" placeholder="uttam.gdg@gmail.com" required autocomplete="email" value="uttam.gdg@gmail.com">
+            </div>
+            <span class="auth-field-error" id="signin-email-error"></span>
+          </div>
+
+          <!-- Password Input -->
+          <div class="auth-form-group">
+            <div class="auth-label-row">
+              <label for="signin-password" class="auth-label">Password</label>
+              <button type="button" class="auth-text-link" id="link-forgot-password">Forgot password?</button>
+            </div>
+            <div class="auth-input-wrapper">
+              <span class="auth-input-icon">
+                <i data-lucide="lock"></i>
+              </span>
+              <input type="password" id="signin-password" class="auth-input" placeholder="••••••••••••" required autocomplete="current-password" value="Password123!">
+              <button type="button" class="auth-pw-toggle-btn" id="btn-toggle-signin-pw" aria-label="Toggle password visibility">
+                <i data-lucide="eye" class="pw-eye-icon"></i>
+              </button>
+            </div>
+            <span class="auth-field-error" id="signin-password-error"></span>
+          </div>
+
+          <!-- Remember Me Checkbox -->
+          <div class="auth-remember-row">
+            <label class="auth-checkbox-label">
+              <input type="checkbox" id="signin-remember" checked class="auth-checkbox">
+              <span class="auth-checkbox-custom"></span>
+              <span class="auth-checkbox-text">Keep me signed in for 30 days</span>
+            </label>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-primary btn-auth-action" id="btn-submit-signin">
+            <span class="btn-text">Sign In to Dashboard</span>
+            <i data-lucide="arrow-right"></i>
+          </button>
+        </form>
+
+        <!-- ==================== TAB 2: SIGN UP FORM ==================== -->
+        <form class="auth-form" id="auth-form-signup" style="display: none;" novalidate>
+          <!-- Name Input -->
+          <div class="auth-form-group">
+            <label for="signup-name" class="auth-label">Full Name</label>
+            <div class="auth-input-wrapper">
+              <span class="auth-input-icon">
+                <i data-lucide="user"></i>
+              </span>
+              <input type="text" id="signup-name" class="auth-input" placeholder="Uttam Kumar Roy" required autocomplete="name">
+            </div>
+            <span class="auth-field-error" id="signup-name-error"></span>
+          </div>
+
+          <!-- Email Input -->
+          <div class="auth-form-group">
+            <label for="signup-email" class="auth-label">Email Address</label>
+            <div class="auth-input-wrapper">
+              <span class="auth-input-icon">
+                <i data-lucide="mail"></i>
+              </span>
+              <input type="email" id="signup-email" class="auth-input" placeholder="you@bppimt.ac.in" required autocomplete="email">
+            </div>
+            <span class="auth-field-error" id="signup-email-error"></span>
+          </div>
+
+          <!-- Role / Focus -->
+          <div class="auth-form-group">
+            <label for="signup-role" class="auth-label">Role or Focus Area</label>
+            <div class="auth-input-wrapper">
+              <span class="auth-input-icon">
+                <i data-lucide="briefcase"></i>
+              </span>
+              <input type="text" id="signup-role" class="auth-input" placeholder="e.g. GDG Core Team / Frontend Developer">
+            </div>
+          </div>
+
+          <!-- Password Input -->
+          <div class="auth-form-group">
+            <label for="signup-password" class="auth-label">Create Password</label>
+            <div class="auth-input-wrapper">
+              <span class="auth-input-icon">
+                <i data-lucide="lock"></i>
+              </span>
+              <input type="password" id="signup-password" class="auth-input" placeholder="Minimum 6 characters" minlength="6" required autocomplete="new-password">
+              <button type="button" class="auth-pw-toggle-btn" id="btn-toggle-signup-pw" aria-label="Toggle password visibility">
+                <i data-lucide="eye" class="pw-eye-icon"></i>
+              </button>
+            </div>
+            <span class="auth-field-error" id="signup-password-error"></span>
+          </div>
+
+          <!-- Terms Checkbox -->
+          <div class="auth-remember-row">
+            <label class="auth-checkbox-label">
+              <input type="checkbox" id="signup-terms" checked class="auth-checkbox" required>
+              <span class="auth-checkbox-custom"></span>
+              <span class="auth-checkbox-text">I agree to TaskFlow's Terms & Community Guidelines</span>
+            </label>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-primary btn-auth-action" id="btn-submit-signup">
+            <span class="btn-text">Create Free Account</span>
+            <i data-lucide="user-plus"></i>
+          </button>
+        </form>
+
+        <!-- Card Footer -->
+        <div class="auth-card-footer">
+          <div class="auth-footer-security">
+            <i data-lucide="shield-check"></i>
+            <span>Protected by client-side session encryption • Zero telemetry</span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ==================== FORGOT PASSWORD MODAL ==================== -->
+    <div class="auth-forgot-modal" id="auth-forgot-modal" aria-hidden="true">
+      <div class="auth-forgot-card">
+        <div class="auth-forgot-header">
+          <div class="auth-forgot-icon-wrap">
+            <i data-lucide="key-round"></i>
+          </div>
+          <h3>Reset Your Password</h3>
+          <p>Enter your registered email and we'll send a password recovery link.</p>
+        </div>
+
+        <form id="auth-form-forgot">
+          <div class="auth-form-group">
+            <label for="forgot-email" class="auth-label">Registered Email</label>
+            <div class="auth-input-wrapper">
+              <span class="auth-input-icon">
+                <i data-lucide="mail"></i>
+              </span>
+              <input type="email" id="forgot-email" class="auth-input" placeholder="uttam.gdg@gmail.com" required value="uttam.gdg@gmail.com">
+            </div>
+          </div>
+
+          <div class="auth-forgot-actions">
+            <button type="button" class="btn btn-outline" id="btn-close-forgot-modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" id="btn-send-reset-link">Send Reset Link</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Overlay Backdrop -->
+  <div class="sidebar-backdrop" id="sidebar-mobile-overlay"></div>
+
+  <!-- Main App Shell -->
+  <div class="app-layout">
+
+    <!-- ==================== FIXED LEFT NAVIGATION SIDEBAR ==================== -->
+    <aside class="sidebar" id="app-sidebar" aria-label="Main Navigation Sidebar">
+      <!-- Brand Area -->
+      <div class="sidebar-header">
+        <div class="brand-logo-wrap">
+          <div class="brand-icon-badge">
+            <svg viewBox="0 0 24 24" class="brand-svg" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <div class="brand-text-block">
+            <div class="brand-title-row">
+              <h1 class="brand-title">TaskFlow</h1>
+              <span class="gdg-brand-badge">GDG</span>
+            </div>
+            <span class="brand-subtitle">Your productivity space.</span>
+          </div>
+        </div>
+
+        <!-- Sidebar Collapse Toggle Button -->
+        <button class="btn-icon sidebar-collapse-btn" id="btn-collapse-sidebar" title="Toggle sidebar width" aria-label="Collapse sidebar">
+          <i data-lucide="chevrons-left" class="collapse-icon"></i>
+        </button>
+      </div>
+
+      <!-- Sidebar Navigation Menu -->
+      <nav class="sidebar-nav" aria-label="Primary Navigation">
+        <!-- Main Navigation Section -->
+        <div class="nav-section-title">MAIN NAVIGATION</div>
+        <ul class="nav-list">
+          <li class="nav-item active" data-view="dashboard">
+            <a href="#dashboard" class="nav-link" title="Dashboard">
+              <i data-lucide="layout-dashboard" class="nav-icon"></i>
+              <span class="nav-label">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item" data-view="my-tasks">
+            <a href="#my-tasks" class="nav-link" title="My Tasks">
+              <i data-lucide="check-square" class="nav-icon"></i>
+              <span class="nav-label">My Tasks</span>
+              <span class="nav-badge" id="badge-nav-all">0</span>
+            </a>
+          </li>
+          <li class="nav-item" data-view="today">
+            <a href="#today" class="nav-link" title="Today">
+              <i data-lucide="calendar-check-2" class="nav-icon text-amber"></i>
+              <span class="nav-label">Today</span>
+              <span class="nav-badge badge-today" id="badge-nav-today">0</span>
+            </a>
+          </li>
+          <li class="nav-item" data-view="upcoming">
+            <a href="#upcoming" class="nav-link" title="Upcoming">
+              <i data-lucide="calendar-clock" class="nav-icon text-blue"></i>
+              <span class="nav-label">Upcoming</span>
+              <span class="nav-badge" id="badge-nav-upcoming">0</span>
+            </a>
+          </li>
+          <li class="nav-item" data-view="calendar">
+            <a href="#calendar" class="nav-link" title="Calendar">
+              <i data-lucide="calendar-days" class="nav-icon"></i>
+              <span class="nav-label">Calendar</span>
+            </a>
+          </li>
+          <li class="nav-item" data-view="favorites">
+            <a href="#favorites" class="nav-link" title="Favorites">
+              <i data-lucide="star" class="nav-icon text-gold"></i>
+              <span class="nav-label">Favorites</span>
+              <span class="nav-badge" id="badge-nav-favorites">0</span>
+            </a>
+          </li>
+          <li class="nav-item" data-view="in-progress">
+            <a href="#in-progress" class="nav-link" title="In Progress">
+              <i data-lucide="timer" class="nav-icon text-info"></i>
+              <span class="nav-label">In Progress</span>
+              <span class="nav-badge" id="badge-nav-progress">0</span>
+            </a>
+          </li>
+          <li class="nav-item" data-view="completed">
+            <a href="#completed" class="nav-link" title="Completed">
+              <i data-lucide="check-circle-2" class="nav-icon text-success"></i>
+              <span class="nav-label">Completed</span>
+              <span class="nav-badge" id="badge-nav-completed">0</span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Categories Section -->
+        <div class="nav-section-title">CATEGORIES</div>
+        <ul class="nav-list">
+          <li class="nav-item" data-view="gdg">
+            <a href="#gdg" class="nav-link" title="GDG Tech Team">
+              <span class="category-dot cat-dot-gdg"></span>
+              <span class="nav-label">GDG</span>
+              <span class="nav-badge" id="badge-nav-gdg">0</span>
+            </a>
+          </li>
+          <li class="nav-item" data-view="academics">
+            <a href="#academics" class="nav-link" title="Academics">
+              <span class="category-dot cat-dot-academics"></span>
+              <span class="nav-label">Academics</span>
+              <span class="nav-badge" id="badge-nav-academics">0</span>
+            </a>
+          </li>
+          <li class="nav-item" data-view="personal">
+            <a href="#personal" class="nav-link" title="Personal">
+              <span class="category-dot cat-dot-personal"></span>
+              <span class="nav-label">Personal</span>
+              <span class="nav-badge" id="badge-nav-personal">0</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Sidebar Bottom Section -->
+      <div class="sidebar-bottom-section">
+        <!-- Prominent "+ New Task" Button -->
+        <button class="btn btn-primary btn-sidebar-new-task btn-open-new-task-modal" title="Create New Task (Shortcut: N)">
+          <i data-lucide="plus"></i>
+          <span class="btn-sidebar-label">New Task</span>
+        </button>
+
+        <ul class="nav-list sidebar-secondary-links">
+          <!-- Settings link -->
+          <li class="nav-item" data-view="settings">
+            <a href="#settings" class="nav-link" title="Settings">
+              <i data-lucide="settings" class="nav-icon"></i>
+              <span class="nav-label">Settings</span>
+            </a>
+          </li>
+
+          <!-- Light/Dark Mode toggle in sidebar -->
+          <li class="nav-item">
+            <button class="nav-link nav-btn-action" id="sidebar-theme-toggle" title="Toggle Light/Dark Theme">
+              <i data-lucide="moon" class="nav-icon"></i>
+              <span class="nav-label theme-label-text">Theme</span>
+            </button>
+          </li>
+        </ul>
+
+        <!-- User Profile Card in Sidebar Footer -->
+        <div class="sidebar-user-card" data-view="settings" title="View Profile & Settings">
+          <div class="user-avatar-circle" id="sidebar-user-avatar">👨‍💻</div>
+          <div class="user-info-text">
+            <div class="user-name" id="sidebar-user-name">Uttam Kumar Roy</div>
+            <div class="user-role" id="sidebar-user-role">GDG BPPIMT Tech Lead</div>
+          </div>
+          <span class="status-online-dot" title="Active Workspace"></span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ==================== MAIN CONTENT WRAPPER ==================== -->
+    <main class="main-wrapper">
+
+      <!-- ==================== TOPBAR HEADER ==================== -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <!-- Mobile Hamburger Menu Button -->
+          <button class="btn-icon mobile-menu-toggle" id="btn-mobile-menu" aria-label="Open mobile navigation drawer">
+            <i data-lucide="menu"></i>
+          </button>
+
+          <!-- Greeting & Date -->
+          <div class="topbar-greeting-wrap">
+            <h2 class="topbar-greeting" id="topbar-greeting">Good morning, ready to be productive? ✨</h2>
+            <div class="topbar-date" id="topbar-date">Monday, October 26, 2026</div>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <!-- Weather Widget Pill (Open-Meteo API) -->
+          <div class="weather-pill" id="topbar-weather-pill" title="Live Weather">
+            <i data-lucide="sun" class="weather-icon"></i>
+            <span class="weather-temp">26°C</span>
+            <span class="weather-city">Kolkata</span>
+          </div>
+
+          <!-- Functional Search Bar with Shortcut -->
+          <div class="topbar-search-box">
+            <i data-lucide="search" class="search-icon"></i>
+            <input type="text" id="topbar-search-input" placeholder="Search tasks by title, category, description... (/ to focus)" aria-label="Search tasks">
+            <kbd class="search-kbd">/</kbd>
+          </div>
+
+          <!-- Notification / Reminder Bell Dropdown -->
+          <div class="notifications-wrapper" id="notifications-wrapper">
+            <button class="btn-icon btn-notifications" id="btn-notifications-toggle" title="View upcoming deadlines & notifications" aria-label="Notifications">
+              <i data-lucide="bell"></i>
+              <span class="notifications-badge" id="notifications-badge">0</span>
+            </button>
+            <div class="notifications-popover" id="notifications-popover">
+              <div class="notif-header">
+                <h3>Notifications & Alerts</h3>
+                <span class="notif-sub">Deadlines & reminders</span>
+              </div>
+              <div class="notif-list" id="notifications-list">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Theme Toggle Button -->
+          <button class="btn-icon btn-theme-toggle" id="btn-theme-toggle" title="Toggle Light / Dark mode" aria-label="Toggle theme">
+            <i data-lucide="moon"></i>
+          </button>
+
+          <!-- Profile Menu with Dropdown -->
+          <div class="profile-menu-wrapper" id="topbar-avatar-wrap">
+            <button class="topbar-avatar-btn" aria-label="User Profile Menu" title="User Menu">
+              <div class="topbar-avatar" id="topbar-avatar">👨‍💻</div>
+            </button>
+            <div class="profile-dropdown-menu" id="profile-dropdown-menu">
+              <div class="profile-menu-header">
+                <strong id="profile-menu-name">Uttam Kumar Roy</strong>
+                <span id="profile-menu-role">GDG BPPIMT Tech Lead</span>
+              </div>
+              <hr class="profile-menu-divider">
+              <a href="#settings" class="profile-menu-item" onclick="window.taskFlowApp.navigateTo('settings')">
+                <i data-lucide="settings"></i> Account Settings
+              </a>
+              <button class="profile-menu-item" onclick="window.taskFlowApp.handleExportData()">
+                <i data-lucide="download"></i> Export JSON Backup
+              </button>
+              <button class="profile-menu-item" onclick="window.taskFlowApp.toggleTheme()">
+                <i data-lucide="sun-moon"></i> Toggle Theme
+              </button>
+              <hr class="profile-menu-divider">
+              <button class="profile-menu-item text-danger" id="btn-topbar-logout">
+                <i data-lucide="log-out"></i> Sign Out
+              </button>
+            </div>
+          </div>
+
+          <!-- Visible "Create Task" Button -->
+          <button class="btn btn-primary btn-open-new-task-modal" title="Create a new task">
+            <i data-lucide="plus"></i>
+            <span class="btn-label-text">Create Task</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- View Title Strip -->
+      <div class="view-header-strip">
+        <h1 class="main-heading" id="main-view-title">My Productivity Dashboard</h1>
+      </div>
+
+      <!-- View Content Scroll Area -->
+      <div class="content-scroll-container">
+
+        <!-- ==================== VIEW 1: DASHBOARD ==================== -->
+        <section class="view-panel" id="view-dashboard">
+
+          <!-- SECTION 4: LARGE DAILY INSPIRATION SECTION (BANNER WITH PHOTO IN BACKGROUND & QUOTE IN FOREGROUND) -->
+          <div class="inspiration-showcase-card" id="dashboard-inspiration-showcase">
+            <!-- Background Photograph -->
+            <img id="inspiration-hero-img"
+                 src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1600&auto=format&fit=crop&q=85"
+                 alt="Alpine Sunrise • Hope & New Beginnings"
+                 class="inspiration-bg-img"
+                 loading="eager">
+
+            <!-- High-Contrast Scrim Overlay for Crystal-Clear Text Readability -->
+            <div class="inspiration-scrim-overlay"></div>
+
+            <!-- Foreground Content Layer -->
+            <div class="inspiration-foreground-content">
+              <div class="inspiration-header-tags">
+                <span class="badge badge-inspiration-label">
+                  <i data-lucide="sparkles"></i> DAILY INSPIRATION
+                </span>
+                <span class="badge badge-theme-tag" id="inspiration-theme-tag">New Beginnings</span>
+                <span class="badge badge-api-slip" id="advice-id-badge">Advice Slip API</span>
+              </div>
+
+              <div class="inspiration-quote-block">
+                <blockquote class="inspiration-quote-display" id="advice-quote-text">
+                  “Focus on being productive instead of busy — small daily improvements lead to stunning results.”
+                </blockquote>
+                <p class="inspiration-subtitle">A little inspiration for your day.</p>
+              </div>
+
+              <!-- Inspiration Bottom Bar (Action Buttons + Photo Caption Pill) -->
+              <div class="inspiration-bottom-bar">
+                <div class="inspiration-actions-row">
+                  <button class="btn btn-primary btn-sm btn-inspiration-refresh" id="btn-refresh-advice" title="Retrieve fresh inspiration from Advice Slip API">
+                    <i data-lucide="refresh-cw" class="icon-refresh"></i>
+                    <span>New Inspiration</span>
+                  </button>
+                  <button class="btn btn-outline btn-sm btn-inspiration-copy" id="btn-copy-quote" title="Copy quote to clipboard">
+                    <i data-lucide="copy"></i>
+                    <span>Copy Quote</span>
+                  </button>
+                </div>
+
+                <div class="photo-overlay-caption">
+                  <i data-lucide="camera" class="caption-icon"></i>
+                  <span id="inspiration-photo-caption">Alpine Sunrise • Hope & New Beginnings</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SECTION 5: 4 RESPONSIVE DASHBOARD STATISTICS CARDS -->
+          <div class="metrics-grid" id="dashboard-summary-cards">
+            <!-- 1. Total Tasks -->
+            <div class="metric-card card-total">
+              <div class="metric-icon-wrap icon-total">
+                <i data-lucide="layers"></i>
+              </div>
+              <div class="metric-data">
+                <span class="metric-value" id="stat-total-tasks">0</span>
+                <span class="metric-label">Total Tasks</span>
+              </div>
+            </div>
+
+            <!-- 2. Completed -->
+            <div class="metric-card card-completed">
+              <div class="metric-icon-wrap icon-completed">
+                <i data-lucide="check-check"></i>
+              </div>
+              <div class="metric-data">
+                <span class="metric-value" id="stat-completed-tasks">0</span>
+                <span class="metric-label">Completed</span>
+              </div>
+            </div>
+
+            <!-- 3. Pending -->
+            <div class="metric-card card-pending">
+              <div class="metric-icon-wrap icon-pending">
+                <i data-lucide="hourglass"></i>
+              </div>
+              <div class="metric-data">
+                <span class="metric-value" id="stat-pending-tasks">0</span>
+                <span class="metric-label">Pending</span>
+              </div>
+            </div>
+
+            <!-- 4. Completion Rate -->
+            <div class="metric-card card-rate">
+              <div class="metric-icon-wrap icon-rate">
+                <i data-lucide="trending-up"></i>
+              </div>
+              <div class="metric-data">
+                <span class="metric-value" id="stat-completion-rate">0%</span>
+                <span class="metric-label">Completion Rate</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ANIMATED COMPLETION PROGRESS BAR & COMPACT DISTRIBUTION BREAKDOWN -->
+          <div class="progress-breakdown-card card">
+            <div class="progress-bar-header">
+              <div class="progress-info">
+                <span class="progress-title">Overall Task Completion Rate</span>
+                <span class="progress-sub" id="dashboard-progress-text">0 of 0 tasks completed</span>
+              </div>
+              <div class="progress-percent" id="dashboard-progress-percent">0%</div>
+            </div>
+
+            <!-- Single Completion Track -->
+            <div class="progress-track">
+              <div class="progress-fill" id="dashboard-progress-fill" style="width: 0%"></div>
+            </div>
+
+            <!-- Compact Multi-Segment Distribution Breakdown: Pending, In Progress, Completed -->
+            <div class="distribution-breakdown-wrap">
+              <div class="distribution-header">
+                <span class="distribution-title">Task Status Distribution</span>
+              </div>
+              <div class="distribution-bar-track">
+                <div class="dist-segment seg-pending" id="dist-seg-pending" style="width: 0%"></div>
+                <div class="dist-segment seg-progress" id="dist-seg-progress" style="width: 0%"></div>
+                <div class="dist-segment seg-completed" id="dist-seg-completed" style="width: 0%"></div>
+              </div>
+              <div class="distribution-legend">
+                <div class="legend-item"><span class="legend-dot dot-pending"></span> <span id="dist-lbl-pending">Pending: 0 (0%)</span></div>
+                <div class="legend-item"><span class="legend-dot dot-progress"></span> <span id="dist-lbl-progress">In Progress: 0 (0%)</span></div>
+                <div class="legend-item"><span class="legend-dot dot-completed"></span> <span id="dist-lbl-completed">Completed: 0 (0%)</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- DASHBOARD SPLIT GRID: TODAY'S FOCUS & URGENT DEADLINES -->
+          <div class="dashboard-split-grid">
+            <!-- Left: Today's Priorities / Quick Tasks -->
+            <div class="card split-card-left">
+              <div class="card-header-clean">
+                <div class="header-title-wrap">
+                  <i data-lucide="sun" class="text-amber"></i>
+                  <h3>Active Tasks</h3>
+                </div>
+                <button class="btn btn-outline btn-xs" onclick="window.taskFlowApp.navigateTo('my-tasks')">View All</button>
+              </div>
+              <div class="quick-tasks-container" id="dashboard-quick-tasks-container">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+
+            <!-- Right: Urgent Deadlines -->
+            <div class="card split-card-right">
+              <div class="card-header-clean">
+                <div class="header-title-wrap">
+                  <i data-lucide="clock" class="text-danger"></i>
+                  <h3>Urgent Deadlines</h3>
+                </div>
+                <span class="text-xs text-muted">Overdue & Next 24h</span>
+              </div>
+              <div class="deadlines-list" id="upcoming-deadlines-container">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+          </div>
+
+          <!-- SECTION 9: EXPLORE SAMPLE TASKS (DUMMYJSON TODOS API) -->
+          <div class="card sample-tasks-section">
+            <div class="sample-section-header">
+              <div class="sample-header-text">
+                <div class="sample-title-row">
+                  <i data-lucide="download-cloud" class="icon-cloud-api"></i>
+                  <h3>Explore Sample Tasks</h3>
+                  <span class="badge badge-api">DummyJSON Todos API</span>
+                  <span class="sample-count-badge" id="sample-tasks-count">(0 available)</span>
+                </div>
+                <p class="sample-subtitle">
+                  Browse tasks retrieved via DummyJSON Todos API. Click "Import Task" to add any item directly into your personal workflow.
+                </p>
+              </div>
+              <button class="btn btn-outline btn-sm" id="btn-reload-sample-tasks" title="Fetch fresh sample tasks">
+                <i data-lucide="refresh-cw"></i> Refresh API
+              </button>
+            </div>
+
+            <!-- Sample Tasks Cards Grid -->
+            <div class="sample-tasks-grid" id="sample-tasks-grid">
+              <!-- Dynamically injected via DashboardUI -->
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ==================== VIEW 2: TASKS PAGE (MY TASKS, TODAY, UPCOMING, ETC.) ==================== -->
+        <section class="view-panel" id="view-tasks-page" style="display: none;">
+
+          <!-- Filter & Controls Toolbar -->
+          <div class="controls-toolbar card">
+            <div class="toolbar-left">
+              <!-- Search inside tasks page -->
+              <div class="toolbar-search-wrap">
+                <i data-lucide="search"></i>
+                <input type="text" id="tasks-page-search" class="form-input-sm" placeholder="Filter tasks...">
+              </div>
+
+              <!-- Quick Status Filter Pills -->
+              <div class="quick-filters-group">
+                <button class="quick-filter-pill active" data-status="All">All</button>
+                <button class="quick-filter-pill" data-status="Pending">Pending</button>
+                <button class="quick-filter-pill" data-status="In Progress">In Progress</button>
+                <button class="quick-filter-pill" data-status="Completed">Completed</button>
+              </div>
+
+              <!-- Category Filter Dropdown -->
+              <div class="select-wrapper">
+                <label for="filter-category" class="sr-only">Filter by Category</label>
+                <select id="filter-category" class="form-select form-select-sm" title="Filter by Category">
+                  <option value="All">All Categories</option>
+                  <option value="GDG">GDG Tech</option>
+                  <option value="Academics">Academics</option>
+                  <option value="Personal">Personal</option>
+                </select>
+              </div>
+
+              <!-- Priority Filter Dropdown -->
+              <div class="select-wrapper">
+                <label for="filter-priority" class="sr-only">Filter by Priority</label>
+                <select id="filter-priority" class="form-select form-select-sm" title="Filter by Priority">
+                  <option value="All">All Priorities</option>
+                  <option value="High">🔴 High Priority</option>
+                  <option value="Medium">🟡 Medium Priority</option>
+                  <option value="Low">🟢 Low Priority</option>
+                </select>
+              </div>
+
+              <!-- Hidden status select synced with quick pills -->
+              <select id="filter-status" class="form-select sr-only">
+                <option value="All">All Statuses</option>
+                <option value="Pending">Pending</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+              </select>
+            </div>
+
+            <div class="toolbar-right">
+              <!-- Sort By Dropdown -->
+              <div class="select-wrapper">
+                <label for="sort-by-select" class="sr-only">Sort Tasks</label>
+                <select id="sort-by-select" class="form-select form-select-sm" title="Sort Tasks">
+                  <option value="dueDate-asc">Due Date (Earliest)</option>
+                  <option value="dueDate-desc">Due Date (Latest)</option>
+                  <option value="priority-desc">Priority (High to Low)</option>
+                  <option value="priority-asc">Priority (Low to High)</option>
+                  <option value="createdAt-desc">Recently Created</option>
+                  <option value="title-asc">Alphabetical (A-Z)</option>
+                </select>
+              </div>
+
+              <!-- View Switchers (Grid vs Table) -->
+              <div class="view-mode-group">
+                <button class="btn-icon active" id="btn-view-grid" title="Card Grid View">
+                  <i data-lucide="layout-grid"></i>
+                </button>
+                <button class="btn-icon" id="btn-view-table" title="Table View">
+                  <i data-lucide="table"></i>
+                </button>
+              </div>
+
+              <!-- Clear Completed Action -->
+              <button class="btn btn-outline btn-sm btn-clear-completed" id="btn-clear-completed" title="Clear all completed tasks">
+                <i data-lucide="trash"></i>
+                <span class="btn-text">Clear Completed</span>
+              </button>
+
+              <!-- "+ New Task" -->
+              <button class="btn btn-primary btn-sm btn-open-new-task-modal">
+                <i data-lucide="plus"></i>
+                <span class="btn-text">New Task</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Dynamic Task Cards / Table Container -->
+          <div class="tasks-container-wrap" id="main-tasks-container">
+            <!-- Injected via dashboard.js -->
+          </div>
+
+        </section>
+
+        <!-- ==================== VIEW 3: CALENDAR ==================== -->
+        <section class="view-panel" id="view-calendar" style="display: none;">
+          <!-- Injected via calendar.js -->
+        </section>
+
+        <!-- ==================== VIEW 4: SETTINGS ==================== -->
+        <section class="view-panel" id="view-settings" style="display: none;">
+          <div class="settings-grid">
+            <!-- Profile Settings Card -->
+            <div class="card settings-card">
+              <div class="settings-card-header">
+                <i data-lucide="user"></i>
+                <h3>User Profile</h3>
+              </div>
+              <div class="settings-form">
+                <div class="form-group">
+                  <label for="settings-name-input">Full Name</label>
+                  <input type="text" id="settings-name-input" class="form-input" placeholder="Your name">
+                </div>
+                <div class="form-group">
+                  <label for="settings-role-input">GDG Role / Title</label>
+                  <input type="text" id="settings-role-input" class="form-input" placeholder="GDG Tech Team Lead">
+                </div>
+                <div class="form-group">
+                  <label for="settings-email-input">Email Address</label>
+                  <input type="email" id="settings-email-input" class="form-input" placeholder="uttam.gdg@gmail.com">
+                </div>
+                <button class="btn btn-primary" id="btn-save-settings">
+                  <i data-lucide="save"></i> Save Profile
+                </button>
+              </div>
+            </div>
+
+            <!-- Application Preferences Card -->
+            <div class="card settings-card">
+              <div class="settings-card-header">
+                <i data-lucide="sliders"></i>
+                <h3>Preferences & Feedback</h3>
+              </div>
+              <div class="settings-form">
+                <label class="setting-toggle-row">
+                  <div>
+                    <strong>Sound Effects (Chimes)</strong>
+                    <p class="text-xs text-muted">Play pleasing Web Audio synthesized tones when completing tasks.</p>
+                  </div>
+                  <input type="checkbox" id="settings-sound-toggle" checked>
+                </label>
+
+                <label class="setting-toggle-row">
+                  <div>
+                    <strong>Compact Card View</strong>
+                    <p class="text-xs text-muted">Show reduced padding and smaller fonts on task cards.</p>
+                  </div>
+                  <input type="checkbox" id="settings-compact-toggle">
+                </label>
+              </div>
+            </div>
+
+            <!-- Data Management & Backups Card -->
+            <div class="card settings-card">
+              <div class="settings-card-header">
+                <i data-lucide="database"></i>
+                <h3>Data Persistence & Backup</h3>
+              </div>
+              <p class="text-sm text-muted">
+                TaskFlow stores all tasks, subtasks, and preferences locally in your browser's <code>localStorage</code>.
+                You can export your workspace as a JSON backup or import it onto another computer.
+              </p>
+
+              <div class="settings-actions-group">
+                <button class="btn btn-outline" id="btn-export-json">
+                  <i data-lucide="download"></i> Export Tasks (JSON)
+                </button>
+
+                <input type="file" id="settings-import-file" accept=".json" style="display: none;">
+                <button class="btn btn-outline" id="btn-trigger-import">
+                  <i data-lucide="upload"></i> Import Tasks (JSON)
+                </button>
+
+                <button class="btn btn-danger-outline" id="btn-reset-all-data">
+                  <i data-lucide="alert-triangle"></i> Reset All Data
+                </button>
+              </div>
+            </div>
+
+            <!-- Weather Widget Integration Card -->
+            <div class="card settings-card">
+              <div class="settings-card-header">
+                <i data-lucide="cloud-sun"></i>
+                <h3>Weather Widget (Live API)</h3>
+              </div>
+              <p class="text-sm text-muted">
+                TaskFlow includes live weather using the free Open-Meteo API (requires zero API keys). If you prefer OpenWeatherMap, you can optionally enter your private key below.
+              </p>
+              <div class="form-group">
+                <label for="settings-weather-city">City Name</label>
+                <input type="text" id="settings-weather-city" class="form-input" placeholder="Kolkata">
+              </div>
+              <div class="form-group">
+                <label for="settings-weather-key">OpenWeatherMap API Key (Optional)</label>
+                <input type="password" id="settings-weather-key" class="form-input" placeholder="Enter custom key (optional)...">
+              </div>
+              <span class="badge badge-api">Free Open-Meteo Fallback Active</span>
+            </div>
+
+            <!-- Account & Authentication Card -->
+            <div class="card settings-card">
+              <div class="settings-card-header">
+                <i data-lucide="shield-check"></i>
+                <h3>Account & Session</h3>
+              </div>
+              <p class="text-sm text-muted">
+                You are currently signed into your TaskFlow productivity workspace. You can switch accounts or sign out back to the login screen anytime.
+              </p>
+              <div class="settings-actions-group">
+                <button class="btn btn-outline" id="btn-settings-switch-account">
+                  <i data-lucide="log-in"></i> Switch Account
+                </button>
+                <button class="btn btn-danger-outline" id="btn-settings-logout">
+                  <i data-lucide="log-out"></i> Sign Out
+                </button>
+              </div>
+            </div>
+
+            <!-- About TaskFlow -->
+            <div class="card settings-card about-card">
+              <div class="settings-card-header">
+                <i data-lucide="info"></i>
+                <h3>About TaskFlow</h3>
+              </div>
+              <p class="text-sm text-muted">
+                <strong>TaskFlow</strong> is your all-in-one productivity hub � capture tasks, set priorities, track progress, and meet deadlines with ease. Built to keep you focused, organised, and consistently ahead every single day.
+              </p>
+              <div class="about-chips">
+                <span class="about-chip"><i data-lucide="check-circle-2"></i> Task Management</span>
+                <span class="about-chip"><i data-lucide="calendar"></i> Calendar</span>
+                <span class="about-chip"><i data-lucide="bar-chart-3"></i> Progress Tracking</span>
+                <span class="about-chip"><i data-lucide="sparkles"></i> Daily Motivation</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- ==================== MODALS ==================== -->
+
+  <!-- 1. Task Create & Edit Modal -->
+  <div class="modal-overlay" id="task-modal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 id="task-modal-heading">Create New Task</h3>
+        <button class="btn-icon btn-close-modal" aria-label="Close modal">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <form id="task-form" class="modal-form">
+        <!-- Task Title -->
+        <div class="form-group">
+          <label for="task-modal-title-input">Task Title <span class="text-danger">*</span></label>
+          <input type="text" id="task-modal-title-input" class="form-input" placeholder="e.g., Deliver GDG Web Dev Masterclass" required maxlength="120">
+        </div>
+
+        <!-- Task Description -->
+        <div class="form-group">
+          <label for="task-modal-desc-input">Description (Optional)</label>
+          <textarea id="task-modal-desc-input" class="form-textarea" placeholder="Add context, links, or notes..." rows="3"></textarea>
+        </div>
+
+        <!-- Priority and Category in 2 columns -->
+        <div class="form-row-2col">
+          <div class="form-group">
+            <label for="task-modal-priority-select">Priority</label>
+            <select id="task-modal-priority-select" class="form-select">
+              <option value="High">🔴 High Priority</option>
+              <option value="Medium" selected>🟡 Medium Priority</option>
+              <option value="Low">🟢 Low Priority</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="task-modal-category-select">Category</label>
+            <select id="task-modal-category-select" class="form-select">
+              <option value="GDG" selected>🚀 GDG Tech</option>
+              <option value="Academics">📚 Academics</option>
+              <option value="Personal">🌿 Personal</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Due Date and Status in 2 columns -->
+        <div class="form-row-2col">
+          <div class="form-group">
+            <label for="task-modal-duedate-input">Due Date <span class="text-danger">*</span></label>
+            <input type="date" id="task-modal-duedate-input" class="form-input" required>
+          </div>
+
+          <div class="form-group">
+            <label for="task-modal-status-select">Status</label>
+            <select id="task-modal-status-select" class="form-select">
+              <option value="Pending" selected>Pending</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Completed">Completed</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Subtasks Checklist Section -->
+        <div class="form-group subtasks-form-section">
+          <label>Checklist / Subtasks</label>
+          <div class="subtask-add-row">
+            <input type="text" id="modal-subtask-input" class="form-input" placeholder="Add checklist item and press Enter..." maxlength="80">
+            <button type="button" class="btn btn-outline btn-sm" id="btn-modal-add-subtask">
+              <i data-lucide="plus"></i> Add
+            </button>
+          </div>
+          <div class="modal-subtasks-list" id="modal-subtasks-list">
+            <!-- Dynamic Subtasks items -->
+          </div>
+        </div>
+
+        <!-- Modal Actions Footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline btn-close-modal">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="btn-save-task">
+            <i data-lucide="check"></i>
+            <span id="task-modal-submit-text">Create Task</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 2. Delete Confirmation Modal -->
+  <div class="modal-overlay" id="delete-modal">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-header modal-header-danger">
+        <div class="danger-title-wrap">
+          <i data-lucide="alert-triangle" class="text-danger"></i>
+          <h3>Delete Task</h3>
+        </div>
+        <button class="btn-icon btn-close-modal" aria-label="Close modal">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete <strong id="delete-task-name">this task</strong>?</p>
+        <p class="text-xs text-muted mt-2">This action cannot be undone.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline btn-close-modal">Cancel</button>
+        <button type="button" class="btn btn-danger" id="btn-confirm-delete">
+          <i data-lucide="trash-2"></i> Delete Forever
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== TOAST NOTIFICATIONS CONTAINER ==================== -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- Application Modular Scripts -->
+  <script type="module" src="js/app.js"></script>
+
+</body>
+</html>

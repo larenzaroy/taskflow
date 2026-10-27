@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="climberSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="50%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#bae6fd"/>
+    </linearGradient>
+    <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e0f2fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#climberSky)"/>
+  <!-- Sea of Clouds -->
+  <ellipse cx="200" cy="460" rx="250" ry="80" fill="url(#cloudGrad)" opacity="0.9"/>
+  <ellipse cx="500" cy="490" rx="300" ry="90" fill="url(#cloudGrad)" opacity="0.95"/>
+  <ellipse cx="380" cy="450" rx="220" ry="70" fill="#ffffff" opacity="0.8"/>
+  <!-- Distant Summit poking through clouds -->
+  <polygon points="120,440 220,290 320,440" fill="#0369a1"/>
+  <polygon points="220,290 240,330 220,350 200,330" fill="#ffffff"/>
+  <!-- Foreground Summit Ridge -->
+  <polygon points="350,600 520,240 850,600" fill="#0f172a"/>
+  <polygon points="520,240 560,320 520,340 480,310" fill="#334155"/>
+  <!-- Climber Silhouette on the ridge -->
+  <circle cx="530" cy="215" r="7" fill="#f8fafc"/>
+  <!-- Body & Backpack -->
+  <ellipse cx="527" cy="228" rx="6" ry="10" fill="#f8fafc"/>
+  <rect x="520" y="222" width="5" height="9" rx="2" fill="#38bdf8"/>
+  <!-- Legs -->
+  <line x1="525" y1="237" x2="520" y2="245" stroke="#f8fafc" stroke-width="3" stroke-linecap="round"/>
+  <line x1="530" y1="237" x2="535" y2="245" stroke="#f8fafc" stroke-width="3" stroke-linecap="round"/>
+  <!-- Trekking Pole -->
+  <line x1="534" y1="226" x2="540" y2="245" stroke="#f8fafc" stroke-width="1.5"/>
+  <!-- Raised Arm in victory -->
+  <line x1="527" y1="223" x2="517" y2="210" stroke="#f8fafc" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

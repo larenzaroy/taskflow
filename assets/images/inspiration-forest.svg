@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="forestSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#064e3b"/>
+      <stop offset="60%" stop-color="#047857"/>
+      <stop offset="100%" stop-color="#a7f3d0"/>
+    </linearGradient>
+    <linearGradient id="pathGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#a7f3d0"/>
+      <stop offset="50%" stop-color="#78350f"/>
+      <stop offset="100%" stop-color="#451a03"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#forestSky)"/>
+  <!-- Sunbeams through canopy -->
+  <polygon points="380,0 430,0 520,600 350,600" fill="#fef3c7" opacity="0.3"/>
+  <polygon points="250,0 290,0 360,600 220,600" fill="#fef3c7" opacity="0.2"/>
+  <polygon points="500,0 540,0 680,600 520,600" fill="#fef3c7" opacity="0.25"/>
+  <!-- Tall Pine Tree Trunks -->
+  <rect x="80" y="0" width="30" height="600" fill="#1e293b" opacity="0.8"/>
+  <rect x="170" y="0" width="45" height="600" fill="#0f172a"/>
+  <rect x="620" y="0" width="50" height="600" fill="#0f172a"/>
+  <rect x="710" y="0" width="35" height="600" fill="#1e293b" opacity="0.8"/>
+  <rect x="290" y="0" width="22" height="420" fill="#064e3b" opacity="0.7"/>
+  <rect x="490" y="0" width="26" height="440" fill="#064e3b" opacity="0.7"/>
+  <!-- Canopy Foliage layers -->
+  <ellipse cx="120" cy="80" rx="90" ry="120" fill="#064e3b" opacity="0.9"/>
+  <ellipse cx="680" cy="100" rx="100" ry="130" fill="#064e3b" opacity="0.9"/>
+  <ellipse cx="400" cy="50" rx="200" ry="80" fill="#047857" opacity="0.7"/>
+  <!-- The Forest Pathway leading into light -->
+  <polygon points="380,380 420,380 580,600 220,600" fill="url(#pathGrad)"/>
+  <ellipse cx="400" cy="380" rx="40" ry="15" fill="#fef3c7" opacity="0.8"/>
+</svg>

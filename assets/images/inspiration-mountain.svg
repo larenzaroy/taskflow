@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="30%" stop-color="#312e81"/>
+      <stop offset="60%" stop-color="#4f46e5"/>
+      <stop offset="85%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#fef3c7"/>
+    </linearGradient>
+    <linearGradient id="sunGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fffbeb"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <linearGradient id="mtnGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#312e81"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <linearGradient id="mtnGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4338ca"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <linearGradient id="mtnGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  <!-- Sky -->
+  <rect width="800" height="600" fill="url(#skyGrad)"/>
+  <!-- Rising Sun -->
+  <circle cx="480" cy="340" r="90" fill="url(#sunGrad)" opacity="0.95"/>
+  <circle cx="480" cy="340" r="140" fill="#fef3c7" opacity="0.25"/>
+  <!-- Distant Peak -->
+  <polygon points="120,440 280,240 440,440" fill="url(#mtnGrad1)" opacity="0.85"/>
+  <polygon points="280,240 310,290 280,310 250,290" fill="#ffffff" opacity="0.4"/>
+  <!-- Center Main Peak -->
+  <polygon points="280,480 500,180 720,480" fill="url(#mtnGrad2)"/>
+  <polygon points="500,180 540,260 500,290 460,250" fill="#ffffff" opacity="0.5"/>
+  <polygon points="500,180 500,480 720,480" fill="#1e1b4b" opacity="0.35"/>
+  <!-- Foreground Ridge -->
+  <polygon points="-50,600 200,360 480,600" fill="url(#mtnGrad3)"/>
+  <polygon points="340,600 620,380 900,600" fill="#0f172a"/>
+  <!-- Mist band -->
+  <ellipse cx="400" cy="460" rx="420" ry="25" fill="#fef3c7" opacity="0.2"/>
+</svg>

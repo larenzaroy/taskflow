@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="lakeSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="50%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <linearGradient id="waterGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#0369a1"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+  </defs>
+  <!-- Sky -->
+  <rect width="800" height="340" fill="url(#lakeSky)"/>
+  <!-- Mountain Range Reflection Silhouette -->
+  <polygon points="50,340 200,160 380,340" fill="#1e293b"/>
+  <polygon points="300,340 460,110 640,340" fill="#0f172a"/>
+  <polygon points="580,340 700,200 820,340" fill="#334155"/>
+  <!-- Lake Water Surface -->
+  <rect y="340" width="800" height="260" fill="url(#waterGrad)"/>
+  <!-- Water Reflection of Mountains -->
+  <polygon points="300,340 460,510 640,340" fill="#0f172a" opacity="0.4"/>
+  <polygon points="50,340 200,480 380,340" fill="#1e293b" opacity="0.3"/>
+  <!-- Gentle Water Ripples -->
+  <ellipse cx="400" cy="400" rx="280" ry="8" fill="#bae6fd" opacity="0.3"/>
+  <ellipse cx="460" cy="450" rx="360" ry="10" fill="#bae6fd" opacity="0.25"/>
+  <ellipse cx="380" cy="520" rx="420" ry="12" fill="#bae6fd" opacity="0.2"/>
+  <!-- Wooden Pier / Dock leading into the lake -->
+  <polygon points="370,600 395,440 405,440 430,600" fill="#78350f"/>
+  <line x1="365" y1="570" x2="435" y2="570" stroke="#92400e" stroke-width="5"/>
+  <line x1="375" y1="530" x2="425" y2="530" stroke="#92400e" stroke-width="5"/>
+  <line x1="385" y1="480" x2="415" y2="480" stroke="#92400e" stroke-width="5"/>
+</svg>

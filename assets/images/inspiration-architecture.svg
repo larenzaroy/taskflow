@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="archSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="60%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <linearGradient id="glassGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+    <linearGradient id="glassGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#4f46e5"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#archSky)"/>
+  <!-- Minimalist Geometric Tower 1 -->
+  <polygon points="120,600 240,120 380,600" fill="url(#glassGrad1)" opacity="0.85"/>
+  <polygon points="240,120 280,180 240,600" fill="#ffffff" opacity="0.15"/>
+  <!-- Modern Geometric Tower 2 -->
+  <polygon points="340,600 500,60 640,600" fill="url(#glassGrad2)" opacity="0.9"/>
+  <polygon points="500,60 540,140 500,600" fill="#ffffff" opacity="0.2"/>
+  <!-- Architectural lines and diagonals -->
+  <line x1="120" y1="600" x2="500" y2="60" stroke="#bae6fd" stroke-width="1.5" opacity="0.4"/>
+  <line x1="340" y1="600" x2="640" y2="200" stroke="#c7d2fe" stroke-width="1.5" opacity="0.4"/>
+  <!-- Horizon glow -->
+  <ellipse cx="400" cy="580" rx="350" ry="40" fill="#38bdf8" opacity="0.25"/>
+</svg>
