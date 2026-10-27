@@ -2138,12 +2138,6 @@ button.mobile-menu-toggle {
   min-width: 0;
   max-width: 100%;
 }
-  padding: 24px;
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-card);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-card);
-}
 
 /* Calendar Header Toolbar */
 .calendar-header-toolbar,
