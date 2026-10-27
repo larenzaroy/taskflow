@@ -1,0 +1,22 @@
+{
+  "name": "taskflow-dashboard",
+  "version": "1.0.0",
+  "description": "TaskFlow — Modern Task & Productivity Dashboard for GDG BPPIMT Tech Team",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js 3000",
+    "dev": "node server.js 3000"
+  },
+  "keywords": [
+    "taskflow",
+    "productivity",
+    "dashboard",
+    "gdg",
+    "bppimt",
+    "vanilla-javascript",
+    "html5",
+    "css3"
+  ],
+  "author": "Uttam Kumar Roy (GDG BPPIMT Tech Team)",
+  "license": "MIT"
+}
