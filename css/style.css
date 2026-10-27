@@ -4875,6 +4875,69 @@ button, a, input, select {
     margin-bottom: 18px;
   }
 
+  /* ── Active Tasks: mobile fixes ─────────────────────────────── */
+  .quick-tasks-container,
+  .deadlines-list {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .quick-task-row {
+    padding: 10px 10px;
+    gap: 10px;
+    align-items: flex-start;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .quick-task-info {
+    min-width: 0;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .quick-task-title {
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    font-size: 0.85rem;
+    line-height: 1.35;
+  }
+
+  .quick-task-meta {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  /* ── Urgent Deadlines: mobile fixes ─────────────────────────── */
+  .deadline-item {
+    padding: 10px 10px;
+    align-items: flex-start;
+    gap: 8px;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .deadline-left {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .deadline-title {
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    font-size: 0.82rem;
+    line-height: 1.3;
+  }
+
+  .deadline-time {
+    flex-shrink: 0;
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+
   /* Tasks View Controls Toolbar on Mobile */
   .controls-toolbar {
     padding: 12px 14px;
